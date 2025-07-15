@@ -9,6 +9,8 @@ public class GameTextures {
 
     public static Identifier SMILE;
 
+    //public static Identifier BLOCK_ATLAS;
+
     public static void init(ResourceRegistrationEvent event) {
         //Register Textures to the VFS
         SMILE = event.registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceCategory.TEXTURE, "smile.png").getIdentifier();

@@ -2,7 +2,9 @@ package com.terminalvelocitycabbage.game.client.registry;
 
 import com.terminalvelocitycabbage.engine.client.renderer.model.Mesh;
 import com.terminalvelocitycabbage.engine.client.renderer.model.Vertex;
+import com.terminalvelocitycabbage.game.client.ecs.BuildWorldSystem;
 import com.terminalvelocitycabbage.game.client.ecs.RotateEntitiesSystem;
+import com.terminalvelocitycabbage.game.common.ecs.components.ChunkComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PitchYawRotationComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PlayerCameraComponent;
 import com.terminalvelocitycabbage.game.common.ecs.components.PositionComponent;
@@ -44,10 +46,12 @@ public class GameEntities {
         event.registerComponent(PositionComponent.class);
         event.registerComponent(PitchYawRotationComponent.class);
         event.registerComponent(PlayerCameraComponent.class);
+        event.registerComponent(ChunkComponent.class);
     }
 
     public static void createSystems(EntitySystemRegistrationEvent event) {
         event.createSystem(RotateEntitiesSystem.class);
+        event.createSystem(BuildWorldSystem.class);
     }
 
     public static void createEntityTemplates(EntityTemplateRegistrationEvent event) {
@@ -66,5 +70,10 @@ public class GameEntities {
         player.addComponent(PositionComponent.class);
         player.addComponent(PitchYawRotationComponent.class);
         player.addComponent(PlayerCameraComponent.class);
+
+        //var chunkMesh = event.createEntity();
+        //chunkMesh.addComponent(null);
+        //chunkMesh.addComponent(MaterialComponent.class).setTexture(GameTextures.BLOCK_ATLAS);
+
     }
 }

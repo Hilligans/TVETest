@@ -16,6 +16,10 @@ public class GameShaders {
     public static Identifier TEST_FRAGMENT_SHADER;
     public static ShaderProgramConfig MESH_SHADER_PROGRAM_CONFIG;
 
+    public static Identifier SELECTION_VERTEX_SHADER;
+    public static Identifier SELECTION_FRAGMENT_SHADER;
+    public static Identifier SELECTION_SHADER_PROGRAM_CONFIG;
+
     public static void init(ResourceRegistrationEvent event) {
         TEST_VERTEX_SHADER = event.registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceCategory.SHADER, "default.vert").getIdentifier();
         TEST_FRAGMENT_SHADER = event.registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceCategory.SHADER, "default.frag").getIdentifier();
@@ -28,6 +32,10 @@ public class GameShaders {
                         .addUniform(new Uniform("viewMatrix"))
                         .addUniform(new Uniform("modelMatrix"))
                         .build();
+
+        //SELECTION_VERTEX_SHADER = event.registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceCategory.SHADER, "selection.vert").getIdentifier();
+        //SELECTION_FRAGMENT_SHADER = event.registerResource(GameClient.CLIENT_RESOURCE_SOURCE, ResourceCategory.SHADER, "selection.frag").getIdentifier();
+
     }
 
 }

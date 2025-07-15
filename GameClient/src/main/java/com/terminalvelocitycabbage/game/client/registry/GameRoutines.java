@@ -3,6 +3,7 @@ package com.terminalvelocitycabbage.game.client.registry;
 import com.terminalvelocitycabbage.engine.graph.Routine;
 import com.terminalvelocitycabbage.engine.registry.Identifier;
 import com.terminalvelocitycabbage.game.client.GameClient;
+import com.terminalvelocitycabbage.game.client.ecs.BuildWorldSystem;
 import com.terminalvelocitycabbage.game.client.ecs.RotateEntitiesSystem;
 import com.terminalvelocitycabbage.templates.events.RoutineRegistrationEvent;
 
@@ -18,6 +19,8 @@ public class GameRoutines {
                         .addNode(
                                 new Identifier(GameClient.ID, "updateRotations"),
                                 RotateEntitiesSystem.class)
+                        .addNode(new Identifier(GameClient.ID, "updateMeshes"),
+                                BuildWorldSystem.class)
                         .build()).getValue();
     }
 
