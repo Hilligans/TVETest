@@ -8,13 +8,11 @@ import com.terminalvelocitycabbage.game.common.voxel.World;
 import com.terminalvelocitycabbage.templates.ecs.components.MeshComponent;
 
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 public class BuildWorldSystem extends System {
+
 
     @Override
     public void update(Manager manager, float deltaTime) {
@@ -36,8 +34,8 @@ public class BuildWorldSystem extends System {
         // figure out what chunk positions are within our render distance
         SortedSet<Long> chunks = new TreeSet<>();
         LongStream.range(-renderDistance, renderDistance)
-                .forEach(i -> LongStream.range(-renderDistance, renderDistance)
-                        .forEach(j -> chunks.add((i + playerChunkX) << 32 | (j + playerChunkZ))));
+                .forEach(x -> LongStream.range(-renderDistance, renderDistance)
+                        .forEach(z -> chunks.add((z + playerChunkZ) << 32 | (x + playerChunkX))));
 
         // remove all chunks that already have meshes
         entities.get(true).forEach(entity -> {

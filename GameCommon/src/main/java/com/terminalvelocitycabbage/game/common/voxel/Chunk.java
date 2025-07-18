@@ -17,6 +17,8 @@ public class Chunk {
     public Block[] blocks;
     public Block defaultBlock;
 
+    public boolean isFullyGenerated;
+
     public Chunk(int chunkX, int chunkZ, int width, int height, Block defaultBlock) {
         this.chunkX = chunkX;
         this.chunkZ = chunkZ;
@@ -43,5 +45,17 @@ public class Chunk {
 
     public int getChunkZ() {
         return chunkZ;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setFullyGenerated(boolean fullyGenerated) {
+        this.isFullyGenerated = fullyGenerated;
+    }
+
+    public boolean getFullyGenerated() {
+        return isFullyGenerated;
     }
 }
